@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body{
+    background-color: lightgray;
+}
+
+#division{
+    border: 10px double silver;
+    margin-right: 90px;
+    margin-left: 90px;
+    margin-top: 30px;
+    background-color: gray;
+}
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px;
+}
+
+.left {
+  width: 25%;
+  margin-top: 150px;
+}
+
+.right {
+  width: 65%;
+  
+  border-radius: 15px;
+  margin-left: 35px;
+  height: 500px;
+  margin-top: 50px;
+}
+
+.row{
+    width: 700px;
+}
+
+#button1{
+    background-color: black;
+    border-radius: 15px;
+    font-size: 30px;
+    padding: 3px 3px 3px 3px;
+    text-overflow: none;
+    color: pink;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a:link{
+    text-decoration: none;
+}
+.button {
+        background-color: black;
+        border: none;
+        color: white;
+        border-radius:15px;
+        padding: 15px 28px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+.delForm-popup {
+  display: none;
+  position: fixed;
+  top: 150px;
+  left: 580px;
+  background-color: gray;
+  border: 3px double black;
+  padding: 50px 50px 50px 50px;
+  border-radius: 15px;
+  
+}
+.delform-container {
+  width: 700px;
+  padding: 10px;
+  background-color: white;
+}
+.searchForm-popup {
+  display: none;
+  position: fixed;
+  top: 150px;
+  left: 580px;
+  background-color: gray;
+  border: 3px double black;
+  padding: 50px 50px 80px 50px;
+  border-radius: 15px;
+}
+.searchform-container {
+  width: 700px;
+  padding: 10px;
+  background-color: white;
+}
+.form-container input[type=text]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+</style>
+</head>
+<body>
+<center>
+<div id="division">
+
+<div class="row">
+  <div class="column left">
+    <img src="Admin-icon.png" height="200px" width="200px">
+  </div>
+  <div class="column right">
+    <br><br><br>
+    <a href="/addBook" class="button">Add Book</a><br><br><br>
+    <button class="button" onclick="delForm()">Delete Book</button><br><br><br>
+    <button class="button" onclick="searchForm()">Search Book</button><br><br><br>
+    <a href="/wtafrontpage" class="button">Home</a><br><br><br>
+  </div>
+</div>
+</div></center>
+
+<div class = "delForm-popup" id="delForm">
+	<form action="/delaction" method="POST" class = "delfrom-container">
+		<h1>Delete Form</h1>
+
+    <label for="delname"><b>Book name</b></label><br>
+    <input type="text" name="delbookname" required><br>
+
+    <label for="delauthor"><b>Book author</b></label><br>
+    <input type="text" name="delbookauthor" required><br><br>
+
+    <button type="submit" class="btn">Submit</button><br><br>
+    <button type="button" class="btn cancel" onclick="closedelForm()">Close</button>
+  </form>
+</div>
+
+<div class = "searchForm-popup" id="searchForm">
+	<form action="/searchaction" method="POST" class = "searchfrom-container">
+		<h1>Search Form</h1>
+
+    <label for="searchname"><b>Book name</b></label><br>
+    <input type="text" name="searchbookname" required><br><br>
+
+    <button type="submit" class="btn">Submit</button><br><br>
+    <button type="button" class="btn cancel" onclick="closesearchForm()">Close</button>
+  </form>
+</div>
+
+<script>
+	function delForm()
+	{
+		document.getElementById("delForm").style.display = "block";
+	}
+	function closedelForm()
+	{
+		document.getElementById("delForm").style.display = "none";
+	}
+</script>
+
+<script>
+	function searchForm()
+	{
+		document.getElementById("searchForm").style.display = "block";
+	}
+	function closesearchForm()
+	{
+		document.getElementById("searchForm").style.display = "none";
+	}
+</script>
+
+
+</body>
+</html>

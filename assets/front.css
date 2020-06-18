@@ -1,0 +1,160 @@
+.body{
+    padding:0px;
+    margin: 0px 0px 0px 0px;
+}
+.container{
+    position:relative;
+    display:flex;
+    width:10%;
+    height:20%;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content: center;
+    background-color: none;
+    padding:10px 10px 10px 10px;
+}
+.library{
+    margin-left: 10px;
+}
+#head{
+    position: absolute;
+    top:60px;
+    right:10px;
+    animation: animate 2s ease-in-out infinite;
+    animation-delay: calc(1s);
+    letter-spacing: 1px;
+    font-size: small;
+}
+@keyframes animate{
+  0%{
+    transform:translateY(0px);
+  }
+  20%
+  {
+    transform:translateY(-30%);
+  }
+  100%
+  {
+    transform:translateY(-60%);
+  }
+}
+.mainbody{
+    width:60%;
+    height:50%;
+    position:relative;
+    top:-250px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: none;
+}
+.img{
+    margin:0px 0px 0px 20px;
+    width:200px;
+    height:120px;
+    border-radius: 30px 30px 30px 30px;
+}
+.top1{
+    display:flex;
+    flex-flow: row;
+}
+.cs{
+    background-color:none;
+    text-align: center;
+}
+.top1 div{
+    margin-left: 10px;
+    width:27%;
+    height:25%;
+    padding:20px;
+}
+#ece{
+    background-color:none;
+    text-align: center;
+}
+#eee{
+    background-color:none;
+    text-align:center;
+}
+.top2{
+    display:flex;
+    flex-flow:row;
+}
+.top2 div{
+    margin-left:10px;
+    width:27%;
+    height:25%;
+    padding:20px;
+}
+.sidebar{
+    position:relative;
+    top:100px;
+    width:230px;
+    height:320px;
+    background-color: #2AA1B5;
+    text-emphasis-color: white;
+    padding:30px;
+    border-radius: 20px 150px 30px 30px;
+}
+.sidebar li{
+    text-decoration: none;
+    margin-top: 30px;
+}
+.sibebar,.mainbody{
+    position:relative;
+    display:block;
+    margin-right: 300px;
+}
+.footer{
+    position: relative;;
+    float:right;
+    top:-640px;
+}
+.search {
+  width: 50%;
+  position: absolute;
+  display:flex;
+}
+
+.searchTerm {
+  width: 80%;
+  border: 3px solid rgb(229, 245, 246);
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: rgb(0, 0, 0);
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: rgb(3, 185, 185);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 30%;
+  left: 93%;
+  transform: translate(-50%, -50%);
+}
+.header{
+position:absolute;
+top:60px;
+right:130px;
+}
+.rotateimg{
+  transform: scaleX(-1);
+}

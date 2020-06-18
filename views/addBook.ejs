@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Book details</title>
+      <style>
+        form  { display: table; border; border: 10px double black; padding: 25px 15px 25px 15px; background-color: gray; border-radius: 10px;}
+        p     { display: table-row;  }
+        label { display: table-cell; }
+        input { display: table-cell; }
+        #button{
+          font-size:20px;
+          cursor: pointer;
+        }
+        
+      </style>
+    </head>
+
+<body style="margin-top:20px; background-color:darkgray" >
+<h2 style="margin-left:550px">Book Details</h2>
+<center>
+<form action="/addBook" method="POST">
+<p><label for="name">Book name</label>
+  <input type="text" name="bookname" id="bname" pal></p><br>
+<p><label for="author">Book author</label>
+  <input type="text" name="bookauthor" id="bauthor"></p><br>
+<p><label for="file_insert">Image</label>
+  <input type="file" name="file" id="myfile"></p><br>
+<p><label for="desc">Description</label>
+  <textarea name="desc" rows="10" cols="50"></textarea></p><br>
+<p><label for="price">Book Price</label>
+  <input type="number" name="bookprice" id="bprice" placeholder="1.0" step="any" min="0"></p><br>
+<p><label for="code">Subject_code</label>
+  <input type="text" name="subcode" id="subject_code"></p><br><br>
+  <input type="submit" value="Submit">
+</form></center>
+
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#container{
+    height:auto;
+    width:110px;
+    background-color:white;
+    background-color:paleturquoise;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tree{
+  position: absolute;
+  left:500px;
+  top:25px;
+}
+.header{
+position:absolute;
+top:35px;
+right:130px;
+}
+.rotateimg{
+  transform: scaleX(-1);
+}
+#sidebar{
+    position: absolute;
+    left:30px;
+    top:230px;
+    padding:20px;
+    height:330px;
+    width:250px;
+    background-color:#2AA1B5;
+    display:block;
+    border-radius: 15px 150px 30px 15px;
+
+}
+#sidebar li{
+    width:1000px;
+    height:60px;
+  
+}
+#mainbody{
+    background-color:paleturquoise;
+    height:400px;
+    margin-left:350px;
+}
+#os{
+    position: absolute;
+    top: 250px;
+    left:590px;
+    border-radius: 15px;
+}
+.dsa{
+    position:absolute;
+    top: 250px;
+}
+#dbs{
+  position:absolute;
+  top: 254px;
+  left:820px;
+}
+#ccn{
+  position:absolute;
+  top: 420px;
+}
+#wta
+{
+  position:absolute;
+  top: 420px;
+  left:590px;
+}
+#acd{
+  position:absolute;
+  top: 420px;
+  left:820px;
+}
+#sub2{
+    position: absolute;
+    top: 350px;
+    left:590px;
+    border-radius: 15px;
+}
+#sub1{
+    position:absolute;
+    top: 350px;
+}
+#sub3{
+  position:absolute;
+  top: 350px;
+  left:820px;
+}
+#footer{
+    position: absolute;
+    bottom:40px;
+    right:33px;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.search {
+  width: 40%;
+  position: absolute;
+  display:flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid rgb(229, 245, 246);
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: rgb(0, 0, 0);
+}
+
+.searchButton {
+  width: 50px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: rgb(3, 185, 185);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 33%;
+  left: 98%;
+  transform: translate(-50%, -50%);
+}
+#head{
+  animation: animate 2s ease-in-out infinite;
+  animation-delay: calc(1s);
+  letter-spacing: 2px;
+}
+@keyframes animate{
+  0%{
+    transform:translateY(0px);
+  }
+  20%
+  {
+    transform:translateY(-20%);
+  }
+  40%,100%
+  {
+    transform:translateY(-20%);
+  }
+}
+
+
+

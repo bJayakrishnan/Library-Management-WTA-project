@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        CART
+    </title>
+</head>
+<body>
+    <table style="width:100%">
+    <tr>
+        <th>Book name</th>
+        <th>Book Author</th>
+        <th>Price</th>
+        <th>No of Books</th>
+    </tr>
+    <% for(var i=0; i<cart.length; i++) {%>
+    <tr>
+    <th><%=cart[i].bookname%></th>
+    <th><%=cart[i].bookauthor%></th>
+    <th><%=cart[i].price_of_book%></th>
+    <th><%=cart[i].no_of_books%></th>
+    </tr>
+    <% } %>
+    </table>
+    <p><%=total%></p>
+    <form action="/proceed" method="POST">
+        <button type='submit' style="cursor: pointer">Proceed to buy</button>
+    </form>
+    <button type='submit'><a href = '/wtafrontpage' style="text-decoration: none">Continue Shopping</a></button>
+
+</body>
+</html>

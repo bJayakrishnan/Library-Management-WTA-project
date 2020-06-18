@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		My Accounts
+	</title>
+</head>
+<body>
+	<table style="width:100%">
+	<tr>
+		<th>Purchase_id</th>
+		<th>User ID</th>
+		<th>Book ID</th>
+		<th>Purchase_time</th>
+	</tr>
+	<% for(var i=0; i<myaccount.length; i++) {%>
+	<tr>
+	<th><%=myaccount[i].purchase_id%></th>
+	<th><%=myaccount[i].book_name%></th>
+	<th><%=myaccount[i].book_author%></th>
+	<th><%=myaccount[i].purchase_time%></th>
+	</tr>
+	<% } %>
+	</table>
+</body>
+</html>
