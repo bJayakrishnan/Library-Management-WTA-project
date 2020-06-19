@@ -173,6 +173,8 @@ app.get('/proceed', function(req, res){
 
 app.post('/proceed', urlencodedParser, function(req, res){
     console.log('Proceed to buy');
+    let date_ob = new Date();
+    console.log(date_ob) 
     //var value = userid;
     var value = store.get('userid').name;
     mysqlConnection.query('select * from new_Sem4_Project.cart where uid = ?',
@@ -192,7 +194,7 @@ app.post('/proceed', urlencodedParser, function(req, res){
                         book_name : result[i].bookname,
                         book_author : result[i].bookauthor,
                         no_of_books : result[i].no_of_books,
-                        purchase_time : new Date().toISOString().slice(0, 10)+" "+new Date().toLocaleTimeString('en-GB')
+                        purchase_time : date_ob
                     }
                     
                     mysqlConnection.query('select Availability from new_Sem4_Project.Book where Book_name = ? and book_author = ?',
@@ -216,7 +218,7 @@ app.post('/proceed', urlencodedParser, function(req, res){
                             }
                             else if(result[0] < values2.no_of_books){
                                 res.send('No Enough books');
-                                console.log('no enouh books');
+                                console.log('no enough books');
                             }
                             else{
                                 
@@ -239,7 +241,8 @@ app.post('/proceed', urlencodedParser, function(req, res){
                     mysqlConnection.query('Insert into new_Sem4_Project.purchase_table set ?',
                         [values2], function(err, result, fields){
                             if(err) throw err;
-                            console.log('record entered');
+                            console.log('record entered')
+                            console.log(fields[0])
                         })
                 }
                 
@@ -253,9 +256,9 @@ app.post('/proceed', urlencodedParser, function(req, res){
 
                 var mailOptions = {
                     from: 'gayathrihogwarts@gmail.com',
-                    to: 'gayathrihogwarts@gmail.com',
+                    to: store.get('gmail_id').name,
                     subject: 'Sending Email using Node.js',
-                    text: 'That was easy!'
+                    text: 'That was easy!' + 'conformation of order with id'
                 };
 
                 transporter.sendMail(mailOptions, function(error, info){
@@ -408,9 +411,12 @@ app.post('/', urlencodedParser, function(req, res) {
         if(result.length > 0)
         {
             
+            console.log(result[0].Email);
             store.set('userid', { name:result[0].User_id });
+            store.set('gmail_id', { name:result[0].Email});
             console.log("see")
             console.log(store.get('userid').name);
+            console.log(store.get('gmail_id').name);
             res.render('wtafrontpage.ejs');
         }
         else
