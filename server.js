@@ -285,8 +285,11 @@ app.post('/delaction', urlencodedParser, function(req, res){
                 if(result.length > 0){
                     console.log(store.get('userid').name);
                     if(result[0].addedby == store.get('userid').name){
-
-                    if(result[0].Availability == 1){
+                    if(result[0].Availability == 0){
+                        res.send('No Book in the database');
+                        console.log('no Availability');
+                    }
+                    else if(result[0].Availability == 1){
                     mysqlConnection.query("DELETE FROM new_Sem4_Project.Book where Book_name = ? and book_author=?",
                         [req.body.delbookname,req.body.delbookauthor], function(err, result, fields){
                             if (err) throw err;
