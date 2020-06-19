@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Data Structures and Algorithms</title>
+    <title>DBS</title>
     <link rel="stylesheet" type="text/css" href="/assets/mystyle.css">
     <link rel="stylesheet" type="text/css" href="/assets/mymenu.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -10,57 +10,100 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 </head>
 <body>
-  
-  <%var runner = 0;
-    if(container.length%3 != 0)
-    {
-      runner = 1;
-    } 
-    for(var i=0; i<((container.length/3)+runner); i++) {%>
-    <div class="row row-cols-1 row-cols-md-3 w-50 p-3">
-      <div class="col mb-4">
-        <div class="card h-100">
-          <img src="/uploads/<%=container[i].book_id + '.png'%>" class="card-img-top" alt="...">
+  <%for(var i=container.length; i > 0;) {%>
+    <%if(i-3 >= 0){%>
+      <div class="card-deck w-50 p-3">
+        <div class="card">
+          <img src="../uploads/<%=container[i-1].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
           <div class="card-body">
-            <h5 class="card-title"><%=container[i].Book_name %></h5>
+            <h5 class="card-title"><%=container[i-1].Book_name %></h5>
+            <p class="card-text"><%=container[i-1].Description %></p>
+            <% var data=container[i-1].book_id %>
+          </div>
+          <div class="card-footer">
+            <form action="/addtocart/<%=data%>" method="POST"> 
+              <button class="btn btn-warning btn-lg btn-block " type="submit">ADD TO CART</button>
+              <a href="#" class="btn btn-success btn-lg btn-block ">BUY NOW</a>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../uploads/<%=container[i-2].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <div class="card-body">
+            <h5 class="card-title"><%=container[i-2].Book_name %></h5>
+            <p class="card-text"><%=container[i-2].Description %></p>
+            <% var data=container[i-2].book_id %>
+          </div>
+          <div class="card-footer">
+            <form action="/addtocart/<%=data%>" method="POST"> 
+              <button class="btn btn-warning btn-lg btn-block " type="submit">ADD TO CART</button>
+              <a href="#" class="btn btn-success btn-lg btn-block ">BUY NOW</a>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../uploads/<%=container[i-3].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <div class="card-body">
+            <h5 class="card-title"><%=container[i-2].Book_name %></h5>
+            <p class="card-text"><%=container[i-2].Description %></p>
+            <% var data=container[i-2].book_id %>
+          </div>
+          <div class="card-footer">
+            <form action="/addtocart/<%=data%>" method="POST"> 
+              <button class="btn btn-warning btn-lg btn-block " type="submit">ADD TO CART</button>
+              <a href="#" class="btn btn-success btn-lg btn-block ">BUY NOW</a>
+            </form>
+          </div>
+      </div>
+      <%=i=i-3;%>
+    <%}else if(i-2 >= 0){%>
+      <div class="card-deck w-50 p-3">
+        <div class="card">
+          <img src="../uploads/<%=container[i-1].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <div class="card-body">
+            <h5 class="card-title"><%=container[i-1].Book_name %></h5>
+            <p class="card-text"><%=container[i-1].Description %></p>
+            <% var data=container[i-1].book_id %>
+          </div>
+          <div class="card-footer">
+            <form action="/addtocart/<%=data%>" method="POST"> 
+              <button class="btn btn-warning btn-lg btn-block " type="submit">ADD TO CART</button>
+              <a href="#" class="btn btn-success btn-lg btn-block ">BUY NOW</a>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../uploads/<%=container[i-2].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <div class="card-body">
+            <h5 class="card-title"><%=container[i-2].Book_name %></h5>
+            <p class="card-text"><%=container[i-2].Description %></p>
+            <% var data=container[i-2].book_id %>
+          </div>
+          <div class="card-footer">
+            <form action="/addtocart/<%=data%>" method="POST"> 
+              <button class="btn btn-warning btn-lg btn-block " type="submit">ADD TO CART</button>
+              <a href="#" class="btn btn-success btn-lg btn-block ">BUY NOW</a>
+            </form>
+          </div>
+        </div>
+      </div>
+      <%=i=i-2;%>
+    <%} else {%>
+      <div class="card  w-50 p-3">
+        <img src="../uploads/<%=container[i].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+        <div class="card-body">
+          <h5 class="card-title"><%=container[i].Book_name %></h5>
             <p class="card-text"><%=container[i].Description %></p>
             <% var data=container[i].book_id %>
+          </div>
+          <div class="card-footer">
             <form action="/addtocart/<%=data%>" method="POST"> 
               <button class="btn btn-warning btn-lg btn-block " type="submit">ADD TO CART</button>
               <a href="#" class="btn btn-success btn-lg btn-block ">BUY NOW</a>
             </form>
           </div>
-        </div>
       </div>
-      <div class="col mb-4">
-        <div class="card h-100">
-          <img src="/uploads/<%=container[i+1].book_id + '.png'%>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"><%=container[i+1].Book_name %></h5>
-            <p class="card-text"><%=container[i+1].Description %></p>
-            <% var data=container[i+1].book_id %>
-            <form action="/addtocart/<%=data%>" method="POST"> 
-              <button class="btn btn-warning btn-lg btn-block " type="submit">ADD TO CART</button>
-              <a href="#" class="btn btn-success btn-lg btn-block ">BUY NOW</a>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div class="card h-100">
-          <img src="/uploads/<%=container[i+2].book_id + '.png'%>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"><%=container[i+2].Book_name %></h5>
-            <p class="card-text"><%=container[i+2].Description %></p>
-            <% var data=container[i+2].book_id %>
-            <form action="/addtocart/<%=data%>" method="POST"> 
-              <button class="btn btn-warning btn-lg btn-block " type="submit">ADD TO CART</button>
-              <a href="#" class="btn btn-success btn-lg btn-block ">BUY NOW</a>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+      <%=i=i-1;%>
     <% } %>
-
+  <% } %>
 </body>

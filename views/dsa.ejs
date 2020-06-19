@@ -8,13 +8,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/styles.css" />
 </head>
 <body>
+    <header class="main-header">
+      <nav class="main-nav nav">
+        <ul>
+          <li><a href="frontpage.html">HOME</a></li>
+          <li><a href="store.html">STORE</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+        </ul>
+      </nav>
+      <h1 class="band-name band-name-large">The Library</h1>
+    </header>
   <%for(var i=container.length; i > 0;) {%>
     <%if(i-3 >= 0){%>
-      <div class="card-deck w-50 p-3">
+      <div class="card-deck w-50 p-3 mx-auto">
         <div class="card">
-          <img src="../uploads/<%=container[i-1].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <img src="/uploads/<%=container[i-1].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image" width="600" height="400">
           <div class="card-body">
             <h5 class="card-title"><%=container[i-1].Book_name %></h5>
             <p class="card-text"><%=container[i-1].Description %></p>
@@ -28,7 +39,7 @@
           </div>
         </div>
         <div class="card">
-          <img src="../uploads/<%=container[i-2].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <img src="/uploads/<%=container[i-2].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image" width="600" height="400">
           <div class="card-body">
             <h5 class="card-title"><%=container[i-2].Book_name %></h5>
             <p class="card-text"><%=container[i-2].Description %></p>
@@ -42,7 +53,7 @@
           </div>
         </div>
         <div class="card">
-          <img src="../uploads/<%=container[i-3].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <img src="/uploads/<%=container[i-3].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image" width="600" height="400">
           <div class="card-body">
             <h5 class="card-title"><%=container[i-2].Book_name %></h5>
             <p class="card-text"><%=container[i-2].Description %></p>
@@ -59,7 +70,7 @@
     <%}else if(i-2 >= 0){%>
       <div class="card-deck w-50 p-3">
         <div class="card">
-          <img src="../uploads/<%=container[i-1].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <img src="/uploads/<%=container[i-1].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image" width="600" height="400">
           <div class="card-body">
             <h5 class="card-title"><%=container[i-1].Book_name %></h5>
             <p class="card-text"><%=container[i-1].Description %></p>
@@ -73,7 +84,7 @@
           </div>
         </div>
         <div class="card">
-          <img src="../uploads/<%=container[i-2].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+          <img src="/uploads/<%=container[i-2].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image" width="600" height="400">
           <div class="card-body">
             <h5 class="card-title"><%=container[i-2].Book_name %></h5>
             <p class="card-text"><%=container[i-2].Description %></p>
@@ -90,7 +101,7 @@
       <%=i=i-2;%>
     <%} else {%>
       <div class="card  w-50 p-3">
-        <img src="../uploads/<%=container[i].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image">
+        <img src="/uploads/<%=container[i].book_id + '.png'%>" class="card-img-top img-thumbnail" alt="Responsive image" width="600" height="400">
         <div class="card-body">
           <h5 class="card-title"><%=container[i].Book_name %></h5>
             <p class="card-text"><%=container[i].Description %></p>

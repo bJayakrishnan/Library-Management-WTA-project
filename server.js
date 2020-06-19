@@ -82,7 +82,7 @@ app.get('/os',function(req, res){
     mysqlConnection.query('Select * from new_Sem4_Project.book where subject_code = ?',
     ['OS'], function(err, result, fields){
         if(err) throw err;
-        res.render('os',{container: result});
+        res.render('dsa',{container: result});
     })
 })
 
@@ -90,7 +90,7 @@ app.get('/dbs',function(req, res){
     mysqlConnection.query('Select * from new_Sem4_Project.book where subject_code = ?',
         ['DBS'], function(err, result, fields){
             if(err) throw err;
-            res.render('dbs',{container: result});
+            res.render('dsa',{container: result});
         })
 })
 
@@ -98,7 +98,7 @@ app.get('/ccn',function(req, res){
     mysqlConnection.query('Select * from new_Sem4_Project.book where subject_code = ?',
     ['CCN'], function(err, result, fields){
         if(err) throw err;
-        res.render('ccn',{container: result});
+        res.render('dsa',{container: result});
     })
 })
 
@@ -106,7 +106,7 @@ app.get('/wta',function(req, res){
     mysqlConnection.query('Select * from new_Sem4_Project.book where subject_code = ?',
     ['WTA'], function(err, result, fields){
         if(err) throw err;
-        res.render('wta',{container: result});
+        res.render('dsa',{container: result});
     })
 })
 
@@ -114,7 +114,7 @@ app.get('/acd',function(req, res){
     mysqlConnection.query('Select * from new_Sem4_Project.book where subject_code = ?',
     ['ACD'], function(err, result, fields){
         if(err) throw err;
-        res.render('acd',{container: result});
+        res.render('dsa',{container: result});
     })
 })
 

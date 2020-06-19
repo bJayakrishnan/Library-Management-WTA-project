@@ -31,80 +31,20 @@
 </body>
 </html> -->
 
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>The Generics | Store</title>
+    <title>NITK E-Library</title>
     <meta name="description" content="This is the description">
-    <link rel="stylesheet" href="/assets/styles.css" />
-    <script src="/assets/js/cart.js" async></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/stylescart.css" />
 </head>
-
 <body>
-    <header class="main-header">
-        <nav class="main-nav nav">
-            <ul>
-                <li><a href="frontpage.html">HOME</a></li>
-                <li><a href="store.html">STORE</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-            </ul>
-        </nav>
-        <h1 class="band-name band-name-large">The Library</h1>
-    </header>
-    <section class="container content-section">
-        <h2 class="section-header">books</h2>
-        <div class="shop-items">
-            <div class="shop-item">
-                <span class="shop-item-title">book 1</span>
-                <img class="shop-item-image" src="C:/Users/Narendra/Pictures/red/cs/cs1.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$12.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title">book 2</span>
-                <img class="shop-item-image" src="C:/Users/Narendra/Pictures/red/cs/cs2.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$14.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title">book 3</span>
-                <img class="shop-item-image" src="C:/Users/Narendra/Pictures/red/cs/cs3.png">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$9.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title">book 4</span>
-                <img class="shop-item-image" src="C:/Users/Narendra/Pictures/red/cs/cs4.png">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$19.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title">book 5</span>
-                <img class="shop-item-image" src="C:/Users/Narendra/Pictures/red/cs/cs5.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$19.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-                <span class="shop-item-title">book 6</span>
-                <img class="shop-item-image" src="C:/Users/Narendra/Pictures/red/cs/cs6.png">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">$6.99</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="container content-section">
         <h2 class="section-header">CART</h2>
         <div class="cart-row">
@@ -113,13 +53,25 @@
             <span class="cart-quantity cart-header cart-column">QUANTITY</span>
         </div>
         <div class="cart-items">
+            <% for(var i=0; i < cart.length; i++) {%>
+                <div class="cart-row">
+                    <span class="cart-item cart-column mx-auto">
+                        <div class="card mb-3 w-75">
+                            <img src="/uploads/<%=cart[i].bid + '.png'%>" class="card-img-top" alt="..." width="600" height="400">
+                            <div class="card-body">
+                            <h5 class="card-title"><%=cart[i].bookname%></h5>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="cart-price cart-column"><p class="h4 mx-auto"> &#8377 <%=cart[i].price_of_book%></p></span>
+                    <span class="cart-quantity cart-column"><p class="h4 mx-auto"><%=cart[i].no_of_books%></p></span>
+                </div>
+            <% } %>
         </div>
         <div class="cart-total">
             <strong class="cart-total-title">Total</strong>
-            <span class="cart-total-price">$0</span>
+            <span class="cart-total-price"><p class="h3"> &#8377 <%=total%></p></span>
         </div>
         <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
     </section>
 </body>
-
-</html>
