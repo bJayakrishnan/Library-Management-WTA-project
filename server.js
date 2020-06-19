@@ -347,14 +347,14 @@ app.post('/searchaction', urlencodedParser, function(req, res){
 })
 
 
-app.post('/addBook', urlencodedParser, /*upload.single('image'),*/ function(req, res) {
+app.post('/addBook', urlencodedParser, upload.single('image'), function(req, res) {
     
     console.log('inside post');
     console.log(req.file);
     console.log(req.body);
     
-    //var loc = __dirname + '/' + req.body.file.path;
-    //console.log(loc);
+    var loc = __dirname + '/' + req.body.file.path;
+    console.log(loc);
 
     if(req.body.bookname)
         {
