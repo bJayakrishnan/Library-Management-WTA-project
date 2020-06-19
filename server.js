@@ -198,9 +198,9 @@ app.post('/proceed', urlencodedParser, function(req, res){
                     }
                     
                     mysqlConnection.query('select Availability from new_Sem4_Project.Book where Book_name = ? and book_author = ?',
-                        [values2.book_name, values2.book_author], function(err, result, fields){
+                        [values2.book_name, values2.book_author], function(err, result3, fields){
                             if(err) throw err;
-                            if(values2.no_of_books == result[0]){
+                            if(values2.no_of_books == result3[0].Availability){
                                 mysqlConnection.query('delete from new_Sem4_Project.Book where Book_name = ? and book_author = ?',
                                     [values2.book_name, values2.book_author], function(err,result, fields){
                                         if(err) throw err;
@@ -216,7 +216,7 @@ app.post('/proceed', urlencodedParser, function(req, res){
                                         }
                                     })
                             }
-                            else if(result[0] < values2.no_of_books){
+                            else if(result3[0].Availability < values2.no_of_books){
                                 res.send('No Enough books');
                                 console.log('no enough books');
                             }
@@ -285,8 +285,11 @@ app.post('/delaction', urlencodedParser, function(req, res){
                 if(result.length > 0){
                     console.log(store.get('userid').name);
                     if(result[0].addedby == store.get('userid').name){
-
-                    if(result[0].Availability == 1){
+                    if(result[0].Availability == 0){
+                        res.send('No Book in the database');
+                        console.log('no Availability');
+                    }
+                    else if(result[0].Availability == 1){
                     mysqlConnection.query("DELETE FROM new_Sem4_Project.Book where Book_name = ? and book_author=?",
                         [req.body.delbookname,req.body.delbookauthor], function(err, result, fields){
                             if (err) throw err;
