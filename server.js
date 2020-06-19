@@ -556,4 +556,18 @@ app.post('/addtocart/:data', urlencodedParser, function(req, res){
     }
 })
 
+app.post('/logout',urlencodedParser,function(req, res){
+    console.log('logout');
+    store.set('userid', { name:0 });
+    console.log(store.get('userid').name);
+    store.set('usermail', { name:null });
+    console.log(store.get('usermail').name);
+    store.set('usermailpswd', { name:null });
+    console.log(store.get('usermailpswd').name);
+    store.set('bookid', { name:0 });
+    console.log(store.get('bookid').name);
+    msg.message = "Login to continue";
+    res.render('login.ejs', {msg: msg});
+})
+
 app.listen(3000);
