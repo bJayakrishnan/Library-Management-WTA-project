@@ -101,11 +101,11 @@
       <%=i=i-2;%>
     <%} else {%>
       <div class="card  w-50 p-3">
-        <img src="../uploads/<%=container[i].book_id + '.png'%>" class="card-img-top img-thumbnail h-25" alt="Responsive image" width="600" height="400">
+        <img src="../uploads/<%=container[i-1].book_id + '.png'%>" class="card-img-top img-thumbnail h-25" alt="Responsive image" width="600" height="400">
         <div class="card-body">
-          <h5 class="card-title"><%=container[i].Book_name %></h5>
-            <p class="card-text"><%=container[i].Description %></p>
-            <% var data=container[i].book_id %>
+          <h5 class="card-title"><%=container[i-1].Book_name %></h5>
+            <p class="card-text"><%=container[i-1].Description %></p>
+            <% var data=container[i-1].book_id %>
           </div>
           <div class="card-footer">
             <form action="/addtocart/<%=data%>" method="POST"> 

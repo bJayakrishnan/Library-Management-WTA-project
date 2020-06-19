@@ -20,14 +20,14 @@ app.use(bodyParser.json());
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './uploads/')
+      cb(null, './public/uploads/')
     },
     filename: function (req, file, cb) {
-      cb(null, req.body.book_id + '.' + 'png')
+      cb(null, file.fieldname + '.png')
     }
   });
    
@@ -344,22 +344,21 @@ app.post('/searchaction', urlencodedParser, function(req, res){
 })
 
 
-app.post('/addBook', urlencodedParser, /*upload.single('image'),*/ function(req, res) {
+app.post('/addBook', urlencodedParser, upload.single('file'), function(req, res) {
     
     console.log('inside post');
     console.log(req.file);
     console.log(req.body);
     
-    //var loc = __dirname + '/' + req.body.file.path;
-    //console.log(loc);
+    var loc = __dirname + '/' + req.file.path;
+    console.log(loc);
 
     if(req.body.bookname)
         {
             var values = {
                 Book_name: req.body.bookname, 
                 book_author: req.body.bookauthor, 
-                //Image: fs.readFileSync(loc),
-                Image : req.query.file,
+                Image: fs.readFileSync(loc),
                 Description: req.body.desc, 
                 Price: req.body.bookprice, 
                 Availability: '1',
@@ -386,10 +385,18 @@ app.post('/addBook', urlencodedParser, /*upload.single('image'),*/ function(req,
                 {
                     console.log(values);
                     var sql = "INSERT INTO `new_Sem4_Project`.`Book` SET ?";
-                    mysqlConnection.query(sql, [values], function(err, result, fields) {
+                    mysqlConnection.query(sql, [values], function(err, result1, fields) {
                         if(err)
                             throw err;
-                        console.log(result);
+                        console.log(result1);
+                        mysqlConnection.query("SELECT book_id FROM book WHERE Book_name = ?", [values.Book_name], function(err, result2, fields) {
+                            if(err)
+                                throw err;
+                            fs.renameSync(loc, __dirname + '/public/uploads/' + result2[0].book_id + '.png', function (err) {
+                                if (err) throw err;
+                                console.log('File Renamed.');
+                                });
+                        })
                         
                     });
                 }    
