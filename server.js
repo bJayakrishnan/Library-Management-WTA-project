@@ -361,7 +361,7 @@ app.post('/addBook', urlencodedParser, upload.single('image'), function(req, res
             var values = {
                 Book_name: req.body.bookname, 
                 book_author: req.body.bookauthor, 
-                //Image: fs.readFileSync(loc),
+                Image: fs.readFileSync(loc),
                 Image : req.query.file,
                 Description: req.body.desc, 
                 Price: req.body.bookprice, 
