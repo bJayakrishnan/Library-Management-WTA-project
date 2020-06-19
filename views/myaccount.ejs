@@ -6,16 +6,20 @@
 	</title>
 </head>
 <body>
-	<table style="width:100%">
+	<table style="width:100%" border="1">
 	<tr>
-		<th>Purchase_id</th>
-		<th>User ID</th>
-		<th>Book ID</th>
-		<th>Purchase_time</th>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Phone_number</th>
+		<th>book_name</th>
+		<th>book_author</th>
+		<th>purchase time</th>
 	</tr>
 	<% for(var i=0; i<myaccount.length; i++) {%>
 	<tr>
-	<th><%=myaccount[i].purchase_id%></th>
+	<th><%=myaccount[i].username%></th>
+	<th><%=myaccount[i].Email%></th>
+	<th><%=myaccount[i].Phone_number%></th>
 	<th><%=myaccount[i].book_name%></th>
 	<th><%=myaccount[i].book_author%></th>
 	<th><%=myaccount[i].purchase_time%></th>
