@@ -198,9 +198,9 @@ app.post('/proceed', urlencodedParser, function(req, res){
                     }
                     
                     mysqlConnection.query('select Availability from new_Sem4_Project.Book where Book_name = ? and book_author = ?',
-                        [values2.book_name, values2.book_author], function(err, result, fields){
+                        [values2.book_name, values2.book_author], function(err, result3, fields){
                             if(err) throw err;
-                            if(values2.no_of_books == result[0]){
+                            if(values2.no_of_books == result3[0].Availability){
                                 mysqlConnection.query('delete from new_Sem4_Project.Book where Book_name = ? and book_author = ?',
                                     [values2.book_name, values2.book_author], function(err,result, fields){
                                         if(err) throw err;
@@ -216,7 +216,7 @@ app.post('/proceed', urlencodedParser, function(req, res){
                                         }
                                     })
                             }
-                            else if(result[0] < values2.no_of_books){
+                            else if(result3[0].Availability < values2.no_of_books){
                                 res.send('No Enough books');
                                 console.log('no enough books');
                             }
